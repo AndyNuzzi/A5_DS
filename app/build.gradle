@@ -32,11 +32,15 @@ android {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "adri-m173_A5_DS"
-        property "sonar.organization", "adri-m173"
+        property "sonar.projectKey", "AndyNuzzi_A5_DS"
+        property "sonar.organization", "andynuzzi"
         property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.login", "122ea59ed3a53f3aef2ec3734a4edcefa4f7f8bc"
+        property "sonar.branch.name", System.getenv("BRANCH")
     }
 }
+
+
 
 dependencies {
 
