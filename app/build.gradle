@@ -32,8 +32,8 @@ android {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "AndyNuzzi_A5_DS"
-        property "sonar.organization", "andynuzzi"
+        property "sonar.projectKey", "AndyNuzzi_A5_DS" #este es el proyecto de git que se ha enlazado a sonar
+        property "sonar.organization", "andynuzzi" #aqui cada uno tiene que poner su nombre de organization que le sale en sonar
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.login", "122ea59ed3a53f3aef2ec3734a4edcefa4f7f8bc"
         property "sonar.branch.name", System.getenv("BRANCH")
