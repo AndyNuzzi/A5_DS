@@ -23,6 +23,6 @@ android:
     - quemu-system-x86_64
     addons:
         sonarcloud:
-          organization: "andynuzzi"
+          organization: "andynuzzi" #aqui cada uno tiene que poner su nombre de organization que le sale en sonar
           token:
             secure: "122ea59ed3a53f3aef2ec3734a4edcefa4f7f8bc" # encrypted value of your token
