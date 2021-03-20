@@ -69,6 +69,7 @@ public class EditProfile extends AppCompatActivity {
 
     }
 
+
     public static ArrayList<String> saveChanges2(String currentUserEmail, String passwordTxt,
                                                  String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt) {
         ArrayList<String> alResultado = new ArrayList<>();

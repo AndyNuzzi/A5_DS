@@ -43,4 +43,5 @@ public class EditProfileTest {
         assertEquals("CambiosReliados(1)",alResultado.get(3));
         assertEquals("goMain(1)",alResultado.get(4));
     }
+
 }

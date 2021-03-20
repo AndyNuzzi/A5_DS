@@ -15,7 +15,6 @@ public class EditProfile2Test {
                 "a", "b", "b@gmail.com");
         assertEquals( "DebesIniciarSesionPreviamente",alResultado.get(0));
 
-
         alResultado = EditProfile2.saveChanges("a@gmail.com", "123", "456",
                 "a", "b", "b@gmail.com");
         assertEquals( "ContraseñaNoCoincide(1)",alResultado.get(0));
