@@ -45,8 +45,6 @@ public class EditProfile2 extends AppCompatActivity {
     public static ArrayList<String> saveChanges(String currentUserEmail, String passwordTxt,
                                                 String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt) {
         ArrayList<String> alResultado = new ArrayList<>();
-
-
         if (!currentUserEmail.equals("")) {
             if (!passwordTxt.equals("") && !confirmPasswordTxt.equals("")) {
                 if (passwordTxt.equals(confirmPasswordTxt)) {
@@ -82,7 +80,6 @@ public class EditProfile2 extends AppCompatActivity {
             }
         } else
             alResultado.add("DebesIniciarSesionPreviamente");
-
         return alResultado;
     }
 
