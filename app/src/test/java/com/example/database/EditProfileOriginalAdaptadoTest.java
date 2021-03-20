@@ -1,4 +1,4 @@
-package com.example.database;
+/*package com.example.database;
 
 import org.junit.Test;
 
@@ -45,3 +45,5 @@ public class EditProfileOriginalAdaptadoTest {
 
     }
 }
+
+ */

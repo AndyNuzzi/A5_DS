@@ -1,4 +1,4 @@
-package com.example.database;
+/* package com.example.database;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -107,3 +107,5 @@ public void setCurrentUserEmail (String Email){
         startActivity(i);
     }
 }
+
+ */

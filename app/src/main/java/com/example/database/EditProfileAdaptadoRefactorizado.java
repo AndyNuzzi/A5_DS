@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+
 
 public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
 
@@ -18,11 +18,11 @@ public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
     private TextView confirmPasswordTxt;
     private TextView nameTxt;
     private TextView surnameTxt;
+
     private TextView emailTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //int currentUserScore;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
@@ -41,7 +41,6 @@ public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
             nameTxt.setHint(currentUser.getName());
             surnameTxt.setHint(currentUser.getSurname());
             emailTxt.setHint(currentUser.getEmail());
-            //currentUserScore = dataBase.getUser(currentUserEmail).getScore();
         } else
             showMessage("Tiene que haber iniciado sesion previamente.");
     }
@@ -59,7 +58,6 @@ public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
                     currentUserEmail = emailTxt.getText().toString();
                 }
                 showMessage("Cambios realizados correctamente.");
-                //goMain(view);
                 goMain();
             } else
                 showMessage("Las contraseñas no coinciden.");
@@ -69,36 +67,10 @@ public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
 
     }
 
-
-    public static ArrayList<String> saveChanges2(String currentUserEmail, String passwordTxt,
-                                                 String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt) {
-        ArrayList<String> alResultado = new ArrayList<>();
-        if (!currentUserEmail.equals("")) {
-            if ((!passwordTxt.equals("") && !confirmPasswordTxt.equals("")) && passwordTxt.equals(confirmPasswordTxt)) {
-                ///  dataBase.updateUser("password", passwordTxt.getText().toString(), currentUserEmail);
-                alResultado.add(passwordTxt);
-                if (!nameTxt.equals(""))
-                    alResultado.add(nameTxt);
-                if (!surnameTxt.equals(""))
-                    alResultado.add(surnameTxt);
-                if (!emailTxt.equals("")) {
-                    alResultado.add(emailTxt);
-                    currentUserEmail = emailTxt;
-                }
-                alResultado.add("CambiosReliados(1)");
-                alResultado.add("goMain(1)");
-            } else
-                alResultado.add("ContraseñaNoCoincide(1)");
-        } else
-            alResultado.add("DebesIniciarSesionPreviamente");
-        return alResultado;
-    }
-
     private boolean checkPasswordFieldsArentEmpty() {
         return !passwordTxt.getText().toString().isEmpty()&&!confirmPasswordTxt.toString().isEmpty();
     }
 
-    //public void goMain(View view){
     private void goMain(){
         Intent i = new Intent(this, MainMenu.class);
         i.putExtra("userEmail", this.currentUserEmail);
@@ -108,8 +80,5 @@ public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
     private void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
-
-
-
 
 }
