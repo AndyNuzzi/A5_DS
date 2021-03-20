@@ -34,7 +34,7 @@ public class EditProfile extends AppCompatActivity {
         emailTxt = (TextView) findViewById(R.id.txtEmail2);
         dataBase = new UsersDataBase(this);
 
-        if(currentUserEmail!=null) {
+        if (currentUserEmail != null) {
             User currentUser = dataBase.getUser(currentUserEmail);
             passwordTxt.setHint(currentUser.getPassword());
             confirmPasswordTxt.setHint(currentUser.getPassword());
@@ -42,19 +42,19 @@ public class EditProfile extends AppCompatActivity {
             surnameTxt.setHint(currentUser.getSurname());
             emailTxt.setHint(currentUser.getEmail());
             //currentUserScore = dataBase.getUser(currentUserEmail).getScore();
-        }else
+        } else
             showMessage("Tiene que haber iniciado sesion previamente.");
     }
 
-    public void saveChanges(View view){
-        if(currentUserEmail!=null){
-            if(checkPasswordFieldsArentEmpty() && passwordTxt.getText().equals(confirmPasswordTxt.getText())){
+    public void saveChanges() {
+        if (currentUserEmail != null) {
+            if (checkPasswordFieldsArentEmpty() && passwordTxt.getText().equals(confirmPasswordTxt.getText())) {
                 dataBase.updateUser("password", passwordTxt.getText().toString(), currentUserEmail);
-                if(!nameTxt.getText().toString().isEmpty())
-                    dataBase.updateUser("name",nameTxt.getText().toString(),currentUserEmail);
-                if(!surnameTxt.getText().toString().isEmpty())
-                    dataBase.updateUser("surname", surnameTxt.getText().toString(),currentUserEmail);
-                if(!emailTxt.getText().toString().isEmpty()){
+                if (!nameTxt.getText().toString().isEmpty())
+                    dataBase.updateUser("name", nameTxt.getText().toString(), currentUserEmail);
+                if (!surnameTxt.getText().toString().isEmpty())
+                    dataBase.updateUser("surname", surnameTxt.getText().toString(), currentUserEmail);
+                if (!emailTxt.getText().toString().isEmpty()) {
                     dataBase.updateUser("_email", emailTxt.getText().toString(), currentUserEmail);
                     currentUserEmail = emailTxt.getText().toString();
                 }
@@ -67,56 +67,31 @@ public class EditProfile extends AppCompatActivity {
         } else
             showMessage("Tiene que haber iniciado sesion previamente.");
 
-        /*
-        if(currentUserEmail!=null) {
-            if(checkPasswordFieldsArentEmpty()){
-                if(passwordTxt.getText().equals(confirmPasswordTxt.getText())) {
-                    dataBase.updateUser("password", passwordTxt.getText().toString(), currentUserEmail);
-                    if(!nameTxt.getText().toString().isEmpty())
-                        dataBase.updateUser("name",nameTxt.getText().toString(),currentUserEmail);
-                    if(!surnameTxt.getText().toString().isEmpty())
-                        dataBase.updateUser("surname", surnameTxt.getText().toString(),currentUserEmail);
-                    if(!emailTxt.getText().toString().isEmpty()){
-                        dataBase.updateUser("_email", emailTxt.getText().toString(), currentUserEmail);
-                        currentUserEmail = emailTxt.getText().toString();
-                    }
-                    Toast.makeText(this,"Cambios realizados correctamente.",Toast.LENGTH_SHORT).show();
-                    //goMain(view);
-                    goMain();
-                }
-                else
-                    Toast.makeText(this,"Las contraseñas no coinciden.",Toast.LENGTH_SHORT).show();
-            }else {
-                if(checkOnePasswordFieldIsEmptyAndOtherNot()){
-                    Toast.makeText(this,"Las contraseñas no coinciden.",Toast.LENGTH_SHORT).show();
-                }else {
-                    if (!nameTxt.getText().toString().isEmpty())
-                        dataBase.updateUser("name", nameTxt.getText().toString(), currentUserEmail);
-                    if (!surnameTxt.getText().toString().isEmpty())
-                        dataBase.updateUser("surname", surnameTxt.getText().toString(), currentUserEmail);
-                    if (!emailTxt.getText().toString().isEmpty()) {
-                        dataBase.updateUser("_email", emailTxt.getText().toString(), currentUserEmail);
-                        currentUserEmail = emailTxt.getText().toString();
-                    }
-                    Toast.makeText(this, "Cambios realizados correctamente.", Toast.LENGTH_SHORT).show();
-                    //goMain(view);
-                    goMain();
-                }
-            }
-        }else
-            Toast.makeText(this,"Tiene que haber iniciado sesion previamente.",Toast.LENGTH_SHORT).show();
-
-         */
     }
 
-    /*
-    private boolean checkOnePasswordFieldIsEmptyAndOtherNot() {
-        if(passwordTxt.getText().toString().isEmpty()&&!confirmPasswordTxt.getText().toString().isEmpty())
-            return true;
-        if(!passwordTxt.getText().toString().isEmpty()&&confirmPasswordTxt.getText().toString().isEmpty())
-           return true;
-        return false;
-    }*/
+    public static ArrayList<String> saveChanges2(String currentUserEmail, String passwordTxt,
+                                                 String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt) {
+        ArrayList<String> alResultado = new ArrayList<>();
+        if (!currentUserEmail.equals("")) {
+            if ((!passwordTxt.equals("") && !confirmPasswordTxt.equals("")) && passwordTxt.equals(confirmPasswordTxt)) {
+                ///  dataBase.updateUser("password", passwordTxt.getText().toString(), currentUserEmail);
+                alResultado.add(passwordTxt);
+                if (!nameTxt.equals(""))
+                    alResultado.add(nameTxt);
+                if (!surnameTxt.equals(""))
+                    alResultado.add(surnameTxt);
+                if (!emailTxt.equals("")) {
+                    alResultado.add(emailTxt);
+                    currentUserEmail = emailTxt;
+                }
+                alResultado.add("CambiosReliados(1)");
+                alResultado.add("goMain(1)");
+            } else
+                alResultado.add("ContraseñaNoCoincide(1)");
+        } else
+            alResultado.add("DebesIniciarSesionPreviamente");
+        return alResultado;
+    }
 
     private boolean checkPasswordFieldsArentEmpty() {
         return !passwordTxt.getText().toString().isEmpty()&&!confirmPasswordTxt.toString().isEmpty();
@@ -135,48 +110,5 @@ public class EditProfile extends AppCompatActivity {
 
 
 
-    public ArrayList<String> saveChanges(String currentUserEmail, String passwordTxt,
-                                         String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt){
-        ArrayList<String> alResultado = new ArrayList<>();
 
-
-        if(!currentUserEmail.equals("")) {
-            if(!passwordTxt.equals("") && !confirmPasswordTxt.equals("")){
-                if(passwordTxt.equals(confirmPasswordTxt)){
-                    alResultado.add(passwordTxt);
-                    if(!nameTxt.equals(""))
-                        alResultado.add(nameTxt);
-                    if(!surnameTxt.equals(""))
-                        alResultado.add(surnameTxt);
-                    if(!emailTxt.equals("")){
-                        alResultado.add(emailTxt);
-                        currentUserEmail = emailTxt;
-                    }
-                    alResultado.add("CambiosReliados(1)");
-                    alResultado.add("goMain(1)");
-                }
-                else
-                    //Toast.makeText(this,"Las contraseñas no coinciden.",Toast.LENGTH_SHORT).show();
-                    alResultado.add("ContraseñaNoCoincide(1)");
-            }else {
-                if( (passwordTxt.equals("") && !confirmPasswordTxt.equals("")) || (!passwordTxt.equals("") && confirmPasswordTxt.equals(""))){
-                    alResultado.add("ContraseñaNoCoincide(2)");
-                }else {
-                    if(!nameTxt.equals(""))
-                        alResultado.add(nameTxt);
-                    if(!surnameTxt.equals(""))
-                        alResultado.add(surnameTxt);
-                    if(!emailTxt.equals("")) {
-                        alResultado.add(emailTxt);
-                        currentUserEmail = emailTxt;
-                    }
-                    alResultado.add("CambiosReliados(2)");
-                    alResultado.add("goMain(2)");
-                }
-            }
-        } else
-            alResultado.add("IniciarSesionPreviamente");
-
-        return alResultado;
-    }
 }
