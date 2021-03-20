@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class EditProfile extends AppCompatActivity {
 
     private String currentUserEmail;
@@ -129,5 +131,52 @@ public class EditProfile extends AppCompatActivity {
 
     private void showMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+    }
+
+
+
+    public ArrayList<String> saveChanges(String currentUserEmail, String passwordTxt,
+                                         String confirmPasswordTxt, String nameTxt, String surnameTxt, String emailTxt){
+        ArrayList<String> alResultado = new ArrayList<>();
+
+
+        if(!currentUserEmail.equals("")) {
+            if(!passwordTxt.equals("") && !confirmPasswordTxt.equals("")){
+                if(passwordTxt.equals(confirmPasswordTxt)){
+                    alResultado.add(passwordTxt);
+                    if(!nameTxt.equals(""))
+                        alResultado.add(nameTxt);
+                    if(!surnameTxt.equals(""))
+                        alResultado.add(surnameTxt);
+                    if(!emailTxt.equals("")){
+                        alResultado.add(emailTxt);
+                        currentUserEmail = emailTxt;
+                    }
+                    alResultado.add("CambiosReliados(1)");
+                    alResultado.add("goMain(1)");
+                }
+                else
+                    //Toast.makeText(this,"Las contraseñas no coinciden.",Toast.LENGTH_SHORT).show();
+                    alResultado.add("ContraseñaNoCoincide(1)");
+            }else {
+                if( (passwordTxt.equals("") && !confirmPasswordTxt.equals("")) || (!passwordTxt.equals("") && confirmPasswordTxt.equals(""))){
+                    alResultado.add("ContraseñaNoCoincide(2)");
+                }else {
+                    if(!nameTxt.equals(""))
+                        alResultado.add(nameTxt);
+                    if(!surnameTxt.equals(""))
+                        alResultado.add(surnameTxt);
+                    if(!emailTxt.equals("")) {
+                        alResultado.add(emailTxt);
+                        currentUserEmail = emailTxt;
+                    }
+                    alResultado.add("CambiosReliados(2)");
+                    alResultado.add("goMain(2)");
+                }
+            }
+        } else
+            alResultado.add("IniciarSesionPreviamente");
+
+        return alResultado;
     }
 }
