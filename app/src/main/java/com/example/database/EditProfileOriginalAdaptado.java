@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EditProfile2 extends AppCompatActivity {
+public class EditProfileOriginalAdaptado extends AppCompatActivity {
 
     private String currentUserEmail;
     private UsersDataBase dataBase;

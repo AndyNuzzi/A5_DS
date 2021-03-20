@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class EditProfile extends AppCompatActivity {
+public class EditProfileAdaptadoRefactorizado extends AppCompatActivity {
 
     private String currentUserEmail;
     private UsersDataBase dataBase;
