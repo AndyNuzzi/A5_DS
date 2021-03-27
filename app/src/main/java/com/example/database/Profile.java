@@ -71,7 +71,7 @@ public class Profile extends AppCompatActivity {
 
     public void goEditPorfile(View view){
         if(currentUserEmail!=null) {
-            Intent editProfile = new Intent(this, EditProfile.class);
+            Intent editProfile = new Intent(this, EditProfileAdaptadoRefactorizado.class);
             editProfile.putExtra("userEmail", currentUserEmail);
             startActivity(editProfile);
         }else
