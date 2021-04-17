@@ -2,6 +2,7 @@ package com.example.database;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Ayuda extends AppCompatActivity {
     private Spinner spinner;
@@ -17,11 +19,13 @@ public class Ayuda extends AppCompatActivity {
     private ImageView image2;
     private TextView text;
     private String currentUserEmail;
+    private static String[] options ={"seleccionar", "Registrarse", "Iniciar sesión", "Jugar", "Perfil", "Ranking", "Ajustes", "Salir"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
+        Context contexto = this;
 
         currentUserEmail = getIntent().getStringExtra("userEmail");
 
@@ -30,7 +34,6 @@ public class Ayuda extends AppCompatActivity {
         image2= findViewById(R.id.image2);
         text= findViewById(R.id.text);
 
-        String[] options ={"seleccionar", "Registrarse", "Iniciar sesión", "Jugar", "Perfil", "Ranking", "Ajustes", "Salir"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,options);
 
         spinner.setAdapter(adapter);
@@ -38,6 +41,8 @@ public class Ayuda extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String mensaje = mostrarMensaje(position);
+                Toast.makeText(contexto, mensaje, Toast.LENGTH_LONG).show();
                 switch (position) {
                     case 1:
                         image.setImageResource(R.drawable.reg1);
@@ -90,6 +95,10 @@ public class Ayuda extends AppCompatActivity {
 
 
         });
+    }
+
+    public static String mostrarMensaje(int opcion){
+        return "Has seleccionado la opción: " + options[opcion];
     }
 
     public void goBack(View view){
