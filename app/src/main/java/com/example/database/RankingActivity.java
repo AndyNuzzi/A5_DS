@@ -42,6 +42,12 @@ public class RankingActivity extends AppCompatActivity {
         dynamic = (ListView) findViewById(R.id.rankList);
         //Mostramos el ranking
         showRanking();
+
+        Toast.makeText(this, mostrarMensajeBienvenida(), Toast.LENGTH_SHORT).show();
+    }
+
+    public static String mostrarMensajeBienvenida(){
+        return "Comprueba tu posición en el ranking";
     }
 
     /**
