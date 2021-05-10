@@ -20,6 +20,12 @@ public class SignActivity extends AppCompatActivity {
     //Campos para rellenar por el usuario en la pantalla
     private EditText etName, etSurname, etEmail, etPassword, etConfirmPassword;
 
+    public static String mensajeContrasenaIncorrecta(String password, String confirmPassword){
+        if (!password.equals(confirmPassword)){
+            return "La contraseña no coincide";
+        } else return "Contraseña correcta";
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

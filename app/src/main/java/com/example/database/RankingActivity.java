@@ -27,6 +27,10 @@ public class RankingActivity extends AppCompatActivity {
     //Array que guarda la información mostrada en cada fila del ranking
     private LinkedList<String> infoToShow = new LinkedList<>();
 
+    public static String mostrarMensajeBienvenida(){
+        return "Comprueba tu posición en el ranking";
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

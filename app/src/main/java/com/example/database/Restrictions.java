@@ -13,16 +13,19 @@ import android.widget.TextView;
 
 public class Restrictions extends AppCompatActivity {
 
+
     private String currentUserEmail = "";
     private String currentCommunity = "";
     private TextView tv1;
     private ListView lv1;
-    private String communities[] = {"Andalucía", "Aragón", "Asturias", "Baleares", "Canarias",
+    private static String[] communities = {"Andalucía", "Aragón", "Asturias", "Baleares", "Canarias",
             "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura",
             "Galicia", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"};
 
-    public static String seleccionComunidad(int posicion) {
+    public static String seleccionComunidad(int comunidad) {
+            return "Has seleccionado: " + communities[comunidad];
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
