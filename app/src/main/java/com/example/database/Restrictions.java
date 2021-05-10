@@ -21,6 +21,9 @@ public class Restrictions extends AppCompatActivity {
             "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura",
             "Galicia", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"};
 
+    public static String seleccionComunidad(int posicion) {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
