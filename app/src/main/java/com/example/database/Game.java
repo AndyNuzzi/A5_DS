@@ -117,6 +117,8 @@ public class Game extends AppCompatActivity {
         showValue.setText(Integer.toString(counter));
     }
 
+
+
     /**
      * Acción al pulsar el círculo que mostrará una notificación de victoria seguido
      * por un incremento del contador para las puntuaciones
@@ -175,6 +177,8 @@ public class Game extends AppCompatActivity {
             Toast.makeText(this, "El tiempo se ha acabado pulsa jugar otra vez para volver a jugar!", Toast.LENGTH_LONG).show();
     }
 
+
+
     public void clickOnWrongCharacter(View view){
         if (!timer.hasEnd()) {
             timer.fallar();
@@ -211,6 +215,9 @@ public class Game extends AppCompatActivity {
             }
         }
     }
+    public static String mostrarMensajeNivel(){
+        return "Has pasado de nivel";
+    }
 
     private void updateScore(){
         if (currentUserEmail != null) {
@@ -218,6 +225,7 @@ public class Game extends AppCompatActivity {
             if(currentUser.getScore()<counter) {
                 ddbb.updateScore(currentUser.getEmail(), counter);
                 Toast.makeText(this, "Felicidades tienes un nuevo record de "+counter+"!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, mostrarMensajeNivel(), Toast.LENGTH_SHORT).show();
             }
         }
     }

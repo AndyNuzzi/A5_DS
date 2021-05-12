@@ -9,9 +9,9 @@ import cucumber.api.junit.Cucumber;
         features = {
                 "src/test/java/com/example/database/cucumber/comunidadTesting/comunidadFeature.feature",
                 "src/test/java/com/example/database/cucumber/rankingTesting/rankingTesting.feature",
-                "src/test/java/com/example/database/cucumber/usuarioTesting/usuarioTesting.feature"
-                //"src/test/java/com/example/database/cucumber/guardarDatosCuenta/guardarDatosCuenta.feature",
-                //"src/test/java/com/example/database/cucumber/pasarNivelTesting/pasarNivel.feature"
+                "src/test/java/com/example/database/cucumber/usuarioTesting/usuarioTesting.feature",
+                "src/test/java/com/example/database/cucumber/guardarDatosCuenta/guardarDatosCuenta.feature",
+                "src/test/java/com/example/database/cucumber/pasarNivel/pasarNivel.feature"
         },
         glue = "com.example.database.cucumber"
 )
