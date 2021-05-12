@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Restrictions extends AppCompatActivity {
 
@@ -17,7 +18,7 @@ public class Restrictions extends AppCompatActivity {
     private String currentCommunity = "";
     private TextView tv1;
     private ListView lv1;
-    private String communities[] = {"Andalucía", "Aragón", "Asturias", "Baleares", "Canarias",
+    private static String communities[] = {"Andalucía", "Aragón", "Asturias", "Baleares", "Canarias",
             "Cantabria", "Castilla-La Mancha", "Castilla y León", "Cataluña", "Extremadura",
             "Galicia", "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"};
 
@@ -33,10 +34,15 @@ public class Restrictions extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //tv1.setText("Ha seleccionado " + lv1.getItemAtPosition(position));
+                Toast.makeText(Restrictions.this, seleccionComunidad(position), Toast.LENGTH_SHORT).show();
                 currentCommunity = lv1.getItemAtPosition(position).toString();
                 goCommunityRestriction(view);
             }
         });
+    }
+
+    public static String seleccionComunidad(int comunidad){
+        return "Has seleccionado: " + communities[comunidad];
     }
 
     public void goCommunityRestriction(View view) {
