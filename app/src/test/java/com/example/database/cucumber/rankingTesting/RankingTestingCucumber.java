@@ -1,10 +1,12 @@
-package com.example.database;
+package com.example.database.cucumber.rankingTesting;
+
+import com.example.database.RankingActivity;
 
 import org.junit.Assert;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class RankingTestingCucumber {
     //RankingActivity rankingActivity;

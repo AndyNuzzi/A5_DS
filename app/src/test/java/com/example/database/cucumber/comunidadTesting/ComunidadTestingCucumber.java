@@ -1,13 +1,14 @@
-package com.example.database;
+package com.example.database.cucumber.comunidadTesting;
+
+import com.example.database.Restrictions;
 
 import org.junit.Assert;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
-public class ComunidadTesting {
+public class ComunidadTestingCucumber {
     //Restrictions restrictions;
     String mensaje;
 
