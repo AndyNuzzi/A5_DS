@@ -11,7 +11,8 @@ import cucumber.api.junit.Cucumber;
                 "src/test/java/com/example/database/cucumber/rankingTesting/rankingTesting.feature",
                 "src/test/java/com/example/database/cucumber/usuarioTesting/usuarioTesting.feature",
                 "src/test/java/com/example/database/cucumber/guardarDatosCuenta/guardarDatosCuenta.feature",
-                "src/test/java/com/example/database/cucumber/pasarNivel/pasarNivel.feature"
+                "src/test/java/com/example/database/cucumber/pasarNivel/pasarNivel.feature",
+                "src/test/java/com/example/database/cucumber/guardarPuntuacion/guardarPuntuacion.feature"
         },
         glue = "com.example.database.cucumber"
 )

@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-class guardarDatosCuenta {
+public class GuardarDatosCuenta {
     String mensaje;
     @Given("^regsitro de la cuenta correcto$")
     public void regsitro_de_la_cuenta_correcto(){

@@ -82,7 +82,6 @@ public class Game extends AppCompatActivity {
         button.setY(randomY()+button.getHeight());
     }
 
-
     private int randomY() {
 
         DisplayMetrics metrics = new DisplayMetrics();
@@ -100,7 +99,6 @@ public class Game extends AppCompatActivity {
         return r.nextInt(width-button.getWidth());
     }
 
-
     /**
      * Acción del botón volver a inicio
      *
@@ -110,6 +108,7 @@ public class Game extends AppCompatActivity {
         Intent main = new Intent(this, MainMenu.class);
         //Cuando salimos del juego y es un usuario loggeado tenemos que actualiar su puntuación
         updateScore();
+        Toast.makeText(this, mostrarMensajePuntuacion(), Toast.LENGTH_SHORT).show();
         //Devolvemos al menú el email del usuario logeado para que mantenga la sesión iniciada
         main.putExtra("userEmail", this.currentUserEmail);
         startActivity(main);
@@ -117,7 +116,9 @@ public class Game extends AppCompatActivity {
         showValue.setText(Integer.toString(counter));
     }
 
-
+    public static String mostrarMensajePuntuacion(){
+        return "su puntuación ha sido actualizada";
+    }
 
     /**
      * Acción al pulsar el círculo que mostrará una notificación de victoria seguido
