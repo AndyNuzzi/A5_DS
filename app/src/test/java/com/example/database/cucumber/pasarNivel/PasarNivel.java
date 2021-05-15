@@ -1,10 +1,7 @@
 package com.example.database.cucumber.pasarNivel;
 
-
-
 import com.example.database.Game;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;

@@ -1,3 +1,5 @@
+
+
 Feature: mensajes informativos si ha pasado de nivel o no cuando se encuentre el virus
 
 As 

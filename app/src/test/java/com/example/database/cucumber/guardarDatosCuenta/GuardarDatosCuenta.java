@@ -1,9 +1,7 @@
 package com.example.database.cucumber.guardarDatosCuenta;
 
 import com.example.database.Profile;
-import com.example.database.RankingActivity;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
