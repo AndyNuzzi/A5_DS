@@ -74,10 +74,16 @@ public class SignActivity extends AppCompatActivity {
                 } else
                     Toast.makeText(this, "Nombre de usuario ya registrado anteriormente.", Toast.LENGTH_LONG).show();
             } else
-                Toast.makeText(this, "Confirme la contraseña correctamente.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, mensajeContrasenaIncorrecta(password,confirmPassword), Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Falta algun campo del registro por rellenar.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static String mensajeContrasenaIncorrecta(String password, String confirmPassword){
+        if (!password.equals(confirmPassword)){
+            return "La contraseña no coincide";
+        } else return "Contraseña correcta";
     }
 
     /**

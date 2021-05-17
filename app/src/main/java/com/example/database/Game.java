@@ -82,7 +82,6 @@ public class Game extends AppCompatActivity {
         button.setY(randomY()+button.getHeight());
     }
 
-
     private int randomY() {
 
         DisplayMetrics metrics = new DisplayMetrics();
@@ -100,7 +99,6 @@ public class Game extends AppCompatActivity {
         return r.nextInt(width-button.getWidth());
     }
 
-
     /**
      * Acción del botón volver a inicio
      *
@@ -110,11 +108,16 @@ public class Game extends AppCompatActivity {
         Intent main = new Intent(this, MainMenu.class);
         //Cuando salimos del juego y es un usuario loggeado tenemos que actualiar su puntuación
         updateScore();
+        Toast.makeText(this, mostrarMensajePuntuacion(), Toast.LENGTH_SHORT).show();
         //Devolvemos al menú el email del usuario logeado para que mantenga la sesión iniciada
         main.putExtra("userEmail", this.currentUserEmail);
         startActivity(main);
         counter = 0;
         showValue.setText(Integer.toString(counter));
+    }
+
+    public static String mostrarMensajePuntuacion(){
+        return "su puntuación ha sido actualizada";
     }
 
     /**
@@ -175,6 +178,8 @@ public class Game extends AppCompatActivity {
             Toast.makeText(this, "El tiempo se ha acabado pulsa jugar otra vez para volver a jugar!", Toast.LENGTH_LONG).show();
     }
 
+
+
     public void clickOnWrongCharacter(View view){
         if (!timer.hasEnd()) {
             timer.fallar();
@@ -211,6 +216,9 @@ public class Game extends AppCompatActivity {
             }
         }
     }
+    public static String mostrarMensajeNivel(){
+        return "Has pasado de nivel";
+    }
 
     private void updateScore(){
         if (currentUserEmail != null) {
@@ -218,6 +226,7 @@ public class Game extends AppCompatActivity {
             if(currentUser.getScore()<counter) {
                 ddbb.updateScore(currentUser.getEmail(), counter);
                 Toast.makeText(this, "Felicidades tienes un nuevo record de "+counter+"!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, mostrarMensajeNivel(), Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -39,7 +39,13 @@ public class Profile extends AppCompatActivity {
             userName.setText(currentUser.getName());
             userSurname.setText(currentUser.getSurname());
             userScore.setText(String.valueOf(currentUser.getScore()));
+            Toast.makeText(this, mostrarMensajeConfirmacion(), Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public static String mostrarMensajeConfirmacion(){
+        return "Se ha guardado correctamente";
     }
 
     /**
@@ -76,7 +82,10 @@ public class Profile extends AppCompatActivity {
             startActivity(editProfile);
         }else
             Toast.makeText(this,"Debe iniciar sesión previamente para poder editar su perfil.", Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(this, mostrarMensajeConfirmacion(), Toast.LENGTH_SHORT).show();
     }
+
 
     public void logOut(View view){
         currentUserEmail = null;
