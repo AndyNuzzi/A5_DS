@@ -15,7 +15,8 @@ public class Instrumentation extends MonitoringInstrumentation {
 
         instrumentationCore.create(arguments);
         start();
-    }         @Override
+    }
+    @Override
     public void onStart() {
         super.onStart();
 
